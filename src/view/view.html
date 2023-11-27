@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>Preview Stream</title>
+
+        <script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+        <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    </head>
+    
+    <body>
+        <img id="play">
+            </br>
+        <div id="log"></div>
+
+        <script type="text/javascript">
+    
+            var socket = io('ws://localhost:3001');
+            
+            socket.on('stream', function(image){
+                $('#play').attr('src',image);
+                $('#log').text(image);
+            });
+        
+        </script>
+
+    </body>
+</html>
